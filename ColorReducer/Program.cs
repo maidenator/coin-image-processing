@@ -13,18 +13,15 @@ namespace ColorReducer
 
             using (Bitmap bitmap = new Bitmap(inputPath))
             {
-                Color c1 = Color.FromArgb(229, 229, 229); // #E5E5E5
-                Color c2 = Color.FromArgb(83, 83, 83);    // #535353
-
                 Color[,] pixels = new Color[bitmap.Width, bitmap.Height];
                 for (int y = 0; y < bitmap.Height; y++)
                 {
                     for (int x = 0; x < bitmap.Width; x++)
                     {
                         Color pixel = bitmap.GetPixel(x, y);
-                        int d1 = DistanceSq(pixel, c1);
-                        int d2 = DistanceSq(pixel, c2);
-                        pixels[x, y] = d1 < d2 ? c1 : c2;
+                        // Convert to grayscale and threshold
+                        int brightness = (int)(pixel.R * 0.299 + pixel.G * 0.587 + pixel.B * 0.114);
+                        pixels[x, y] = brightness > 150 ? Color.White : Color.Black;
                     }
                 }
 
@@ -39,25 +36,25 @@ namespace ColorReducer
                         Color current = pixels[x, y];
                         newPixels[x, y] = current;
                         
-                        if (current == c1) // c1 is background, check if adjacent to c2 (grey)
+                        if (current == Color.White) // check if adjacent to black
                         {
-                            bool adjacentToGrey = false;
+                            bool adjacentToBlack = false;
                             for (int i = 0; i < 8; i++)
                             {
                                 int nx = x + dx[i];
                                 int ny = y + dy[i];
                                 if (nx >= 0 && nx < bitmap.Width && ny >= 0 && ny < bitmap.Height)
                                 {
-                                    if (pixels[nx, ny] == c2)
+                                    if (pixels[nx, ny] == Color.Black)
                                     {
-                                        adjacentToGrey = true;
+                                        adjacentToBlack = true;
                                         break;
                                     }
                                 }
                             }
-                            if (adjacentToGrey)
+                            if (adjacentToBlack)
                             {
-                                newPixels[x, y] = c2;
+                                newPixels[x, y] = Color.Black;
                             }
                         }
                     }

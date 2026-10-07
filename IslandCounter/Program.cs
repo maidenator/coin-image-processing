@@ -27,8 +27,8 @@ namespace IslandCounter
                     }
                 }
 
-                Color bgBase = Color.FromArgb(229, 229, 229);
-                Color fgBase = Color.FromArgb(83, 83, 83);
+                Color bgBase = Color.White;
+                Color fgBase = Color.Black;
                 
                 Color topleft = pixels[0, 0];
                 bool isTopLeftBg = DistanceSq(topleft, bgBase) < DistanceSq(topleft, fgBase);

@@ -13,16 +13,16 @@ This project processes an image of scattered coins, flattens the colors to remov
 ### Program Output
 ```text
 Loading image...
-Background base color: C(229, 229, 229)
+Background base color: C(255, 255, 255)
 Finding islands using DFS...
 
 Found 64 total coins.
 Grouped into 5 coin denominations:
-5 Cent (~2850 pixels): 7 coins
-10 Cent (~3457 pixels): 11 coins
-25 Cent (~4747 pixels): 28 coins
-1 Peso (~6600 pixels): 13 coins
-5 Peso (~8250 pixels): 5 coins
+5 Cent (~2832 pixels): 7 coins
+10 Cent (~3438 pixels): 11 coins
+25 Cent (~4722 pixels): 28 coins
+1 Peso (~6572 pixels): 13 coins
+5 Peso (~8217 pixels): 5 coins
 ```
 
 ## How to Run
@@ -38,13 +38,9 @@ The program has already been compiled into `.exe` files in the [executables fold
 The process is split into two main steps:
 
 ### 1. Color Reducer
-First, I needed to clean up the image so it's easier to process. To find the best colors to represent the background and the coins, I used an online tool called [Color Summarizer](https://mk.bcgsc.ca/color-summarizer/?). By using its K-Means clustering feature, the tool analyzed the original image and found the two most dominant colors:
-- **Background:** `#E5E5E5` (Light Grey)
-- **Coins:** `#535353` (Dark Grey)
+First, I needed to clean up the image so it's easier to process. The program applies a thresholding algorithm (binarization) to convert the image straight to black and white.
 
-![Color Clusters](color_clusters.png)
-
-The `ColorReducer` script goes through every single pixel in the original image and changes it to whichever of those two colors it is closest to. To fix any tiny "noise" holes inside the coins caused by reflections, each pixel touching a coin pixel gets turned into a coin pixel. It then saves the result as a PNG file so we don't get any new compression artifacts.
+The `ColorReducer` script goes through every single pixel in the original image, calculates its luminance (brightness), and changes it to pure white (`#FFFFFF`) if it's bright enough (background), or pure black (`#000000`) if it's darker (coins). To fix any tiny "noise" holes inside the coins caused by reflections, each background pixel touching a black coin pixel is turned into a black coin pixel. It then saves the result as a PNG file so we don't get any new compression artifacts.
 
 ## Before and After Flattening Process
 
