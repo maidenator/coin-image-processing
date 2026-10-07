@@ -2,12 +2,6 @@
 
 This project processes an image of scattered coins, flattens the colors to remove noise, counts the coins, and groups them by their 5 denominations.
 
-## Before and After
-
-| Original (`coins.jpeg`) | Flattened (`coins_flattened.png`) |
-| :---: | :---: |
-| <img src="coins.jpeg" width="400" /> | <img src="coins_flattened.png" width="400" /> |
-
 ### Expected Output (Manual Counting)
 - **Total Coins:** 64
 - **5 Cent:** 7 coins
@@ -51,6 +45,12 @@ First, I needed to clean up the image so it's easier to process. To find the bes
 ![Color Clusters](color_clusters.png)
 
 The `ColorReducer` script goes through every single pixel in the original image and changes it to whichever of those two colors it is closest to. To fix any tiny "noise" holes inside the coins caused by reflections, each pixel touching a coin pixel gets turned into a coin pixel. It then saves the result as a PNG file so we don't get any new compression artifacts.
+
+## Before and After
+
+| Original (`coins.jpeg`) | Flattened (`coins_flattened.png`) |
+| :---: | :---: |
+| <img src="coins.jpeg" width="400" /> | <img src="coins_flattened.png" width="400" /> |
 
 ### 2. Island Counter
 Next, the program scans the clean image using a **Depth-First Search** algorithm to count the "islands" (the coins). 
