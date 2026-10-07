@@ -6,7 +6,30 @@ This project processes an image of scattered coins, flattens the colors to remov
 
 | Original (`coins.jpeg`) | Flattened (`coins_flattened.png`) |
 | :---: | :---: |
-| ![Original Coins](coins.jpeg) | ![Flattened Coins](coins_flattened.png) |
+| <img src="coins.jpeg" width="400" /> | <img src="coins_flattened.png" width="400" /> |
+
+### Expected Output (Manual Counting)
+- **Total Coins:** 64
+- **5 Cent:** 7 coins
+- **10 Cent:** 11 coins
+- **25 Cent:** 28 coins
+- **1 Peso:** 13 coins
+- **5 Peso:** 5 coins
+
+### Program Output
+```text
+Loading image...
+Background base color: C(229, 229, 229)
+Finding islands using DFS...
+
+Found 64 total coins.
+Grouped into 5 coin denominations:
+5 Cent (~2850 pixels): 7 coins
+10 Cent (~3457 pixels): 11 coins
+25 Cent (~4747 pixels): 28 coins
+1 Peso (~6600 pixels): 13 coins
+5 Peso (~8250 pixels): 5 coins
+```
 
 ## How to Run
 
