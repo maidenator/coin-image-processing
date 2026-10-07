@@ -46,7 +46,7 @@ First, I needed to clean up the image so it's easier to process. To find the bes
 
 The `ColorReducer` script goes through every single pixel in the original image and changes it to whichever of those two colors it is closest to. To fix any tiny "noise" holes inside the coins caused by reflections, each pixel touching a coin pixel gets turned into a coin pixel. It then saves the result as a PNG file so we don't get any new compression artifacts.
 
-## Before and After
+## Before and After Flattening Process
 
 | Original (`coins.jpeg`) | Flattened (`coins_flattened.png`) |
 | :---: | :---: |
