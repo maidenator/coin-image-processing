@@ -2,6 +2,12 @@
 
 This project processes an image of scattered coins, flattens the colors to remove noise, counts the coins, and groups them by their 5 denominations.
 
+## Before and After
+
+| Original (`coins.jpeg`) | Flattened (`coins_flattened.png`) |
+| :---: | :---: |
+| ![Original Coins](coins.jpeg) | ![Flattened Coins](coins_flattened.png) |
+
 ## How to Run
 
 I've already compiled the code into easy-to-run `.exe` files in the `exe` folder. You don't need to install anything!

@@ -4,7 +4,6 @@ obj/
 exe/
 
 # Generated output images (optional to ignore, but usually you don't commit them since the code makes them)
-coins_flattened.png
 
 # IDE Folders (Visual Studio / VS Code)
 .vs/
