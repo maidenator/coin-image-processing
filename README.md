@@ -33,11 +33,11 @@ Grouped into 5 coin denominations:
 
 ## How to Run
 
-I've already compiled the code into easy-to-run `.exe` files in the `exe` folder. You don't need to install anything!
+The program has already been compiled into `.exe` files in the [executables folder](executables).
 
-1. Open the `exe` folder.
+1. Open the [executables folder](executables).
 2. Double-click `ColorReducer.exe`. This will read the original `coins.jpeg` image and output a clean `coins_flattened.png` image with exactly two colors.
-3. Next, open a command prompt in the `exe` folder and run `IslandCounter.exe` (so you can see the text output). This will read the new `coins_flattened.png`, count all the coins, group them into the 5 sizes, and print the results to the screen!
+3. Next, open a terminal inside the [executables folder](executables) and run `IslandCounter.exe`. This will read the new `coins_flattened.png`, count all the coins, group them into the 5 sizes, and print the results to the screen!
 
 ## How it Works
 
